@@ -1,6 +1,6 @@
 package com.maodot.weixinfunction.controller;
 
-import com.maodot.weixinfunction.infrastructure.WeiXinMessageTemplate;
+import com.maodot.weixinfunction.infrastructure.WeiXinMessage;
 import com.maodot.weixinfunction.infrastructure.WeixinXmlParser;
 
 import java.io.File;
@@ -38,7 +38,7 @@ public class MainTest {
                 " <MsgId>6272960105994287618</MsgId>\n" +
                 " <MediaId><![CDATA[gyci5a-xxxxx-OL]]></MediaId>" +
                 " </xml>";
-        WeiXinMessageTemplate messageTemplate = WeixinXmlParser.parse(xmlString);
+        WeiXinMessage messageTemplate = WeixinXmlParser.parse(xmlString);
 
         System.out.println(messageTemplate.msgType);
 

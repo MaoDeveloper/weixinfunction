@@ -8,10 +8,10 @@ import com.maodot.weixinfunction.infrastructure.utils.JaxbXmlUtil;
  */
 public class WeixinXmlParser {
 
-    public static WeiXinMessageTemplate parse(String xmlString){
+    public static WeiXinMessage parse(String xmlString){
 
         try {
-            WeiXinMessageTemplate messageTemplate = JaxbXmlUtil.convertToJavaBean(xmlString, WeiXinMessageTemplate.class);
+            WeiXinMessage messageTemplate = JaxbXmlUtil.convertToJavaBean(xmlString, WeiXinMessage.class);
             return messageTemplate;
         } catch (Exception e) {
             e.printStackTrace();
