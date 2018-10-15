@@ -1,7 +1,7 @@
 package com.maodot.weixinfunction.controller;
 
 import com.maodot.weixinfunction.application.WeiXinMessageDistributeService;
-import com.maodot.weixinfunction.domain.AccessTokenService;
+import com.maodot.weixinfunction.infrastructure.AccessTokenService;
 import com.maodot.weixinfunction.infrastructure.utils.SHA1;
 import com.maodot.weixinfunction.infrastructure.WeiXinMessage;
 import com.maodot.weixinfunction.infrastructure.WeixinXmlParser;
@@ -9,10 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -64,7 +61,7 @@ public class WeixinBaseController {
     }
 
     @RequestMapping(path = "/wx" , method = RequestMethod.POST)
-    public Object receive(@RequestParam String xmlString){
+    public Object receive(@RequestBody String xmlString){
         // 解析xml
         WeiXinMessage messageTemplate = WeixinXmlParser.parse(xmlString);
         return weiXinMessageDistributeService.businessHandle(messageTemplate);

@@ -1,9 +1,8 @@
-package com.maodot.weixinfunction.domain;
+package com.maodot.weixinfunction.infrastructure;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.maodot.weixinfunction.infrastructure.WeixinInterface;
-import com.maodot.weixinfunction.infrastructure.http.HttpService;
+import com.maodot.weixinfunction.infrastructure.http.WeiXinHttpService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 用于获取 access_token
@@ -42,7 +40,7 @@ public class AccessTokenService {
     private String appSecret;
 
     @Autowired
-    private HttpService httpService;
+    private WeiXinHttpService weiXinHttpService;
 
     /**
      * 获取可用的 access_token
@@ -79,7 +77,7 @@ public class AccessTokenService {
         params.put("appid" , appId);
         params.put("secret" , appSecret);
         // http 请求 access_token
-        return httpService.sendGet(WeixinInterface.ACCESS_TOKEN, params);
+        return weiXinHttpService.sendGet(WeixinInterface.ACCESS_TOKEN, params);
     }
 
     private static class AccessToken{
