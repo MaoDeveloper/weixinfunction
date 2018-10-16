@@ -30,7 +30,8 @@ public class WeiXinHttpService {
 
     public String sendGetToWx(String url , Map<String,Object> params){
         String accessToken = accessTokenService.getAccessToken();
-        return this.sendGet(url+"?access_token="+accessToken , params);
+        params.put("access_token",accessToken);
+        return this.sendGet(url , params);
     }
 
     public String sendPostToWx(String url , Map<String,Object> params){

@@ -26,4 +26,6 @@ public class WeixinInterface {
     public static final String KF_ACCOUNT_LIST = "https://api.weixin.qq.com/customservice/kfaccount/getkflist";
     public static final String KF_MESSAGE_SEND = "https://api.weixin.qq.com/cgi-bin/message/custom/send";
     public static final String KF_MESSAGE_CUSTOM_TYPING = "https://api.weixin.qq.com/cgi-bin/message/custom/typing";
+
+    public static final String ACCOUNT_USER_INFO = "https://api.weixin.qq.com/cgi-bin/user/info";
 }
